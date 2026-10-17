@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="4" y1="1" x2="28" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2C2118"/>
+      <stop offset="1" stop-color="#120E0B"/>
+    </linearGradient>
+    <linearGradient id="plank1" x1="6" y1="7" x2="26" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4E2B8"/>
+      <stop offset="0.5" stop-color="#D4B078"/>
+      <stop offset="1" stop-color="#A8875A"/>
+    </linearGradient>
+    <linearGradient id="plank2" x1="6" y1="14" x2="26" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E2C08A"/>
+      <stop offset="0.45" stop-color="#B8956C"/>
+      <stop offset="1" stop-color="#8A6840"/>
+    </linearGradient>
+    <linearGradient id="plank3" x1="6" y1="21" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9A36A"/>
+      <stop offset="0.5" stop-color="#8F6D3F"/>
+      <stop offset="1" stop-color="#5E472A"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <rect x="5.5" y="7" width="21" height="5.5" rx="1.6" fill="url(#plank1)"/>
+  <path d="M8 8.6c3 .85 7 .95 13 0M8 10.4c4 .7 7.5 .75 12 0" stroke="#6B4E2A" stroke-width="0.45" stroke-linecap="round" opacity="0.28"/>
+  <rect x="5.5" y="13.25" width="21" height="5.5" rx="1.6" fill="url(#plank2)"/>
+  <path d="M7.5 14.8c3.5 .8 8 .9 14 0M8.5 16.6c3.5 .65 7 .7 11.5 0" stroke="#F8EAC8" stroke-width="0.45" stroke-linecap="round" opacity="0.22"/>
+  <rect x="5.5" y="19.5" width="21" height="5.5" rx="1.6" fill="url(#plank3)"/>
+  <path d="M8 21c4 .75 7.5 .85 13 0M9 22.8c3 .6 6.5 .65 10.5 0" stroke="#F8EAC8" stroke-width="0.45" stroke-linecap="round" opacity="0.18"/>
+</svg>

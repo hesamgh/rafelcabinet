@@ -1,0 +1,14 @@
+User-Agent: *
+Allow: /
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Googlebot-Image
+Allow: /
+
+User-Agent: Bingbot
+Allow: /
+
+Host: rafelcabinet.ir
+Sitemap: https://rafelcabinet.ir/sitemap.xml

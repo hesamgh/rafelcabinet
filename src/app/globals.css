@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f3eee6;
+  --fg: #171410;
+  --surface: #fbf7f1;
+  --surface-alt: #efe9e0;
+  --muted: #e8e1d5;
+  --muted-fg: #6a6258;
+  --border: rgba(23, 20, 16, 0.08);
+  --brass: #b08d55;
+  --brass-soft: #d4b98a;
+  --brass-ink: #171410;
+  --walnut: #3a2b1f;
+  --glass: rgba(251, 247, 241, 0.84);
+  --nav-bg: rgba(243, 238, 230, 0.9);
+  --shadow-soft: 0 18px 50px rgba(23, 20, 16, 0.07);
+  --shadow-lift: 0 24px 60px rgba(23, 20, 16, 0.11);
+
+  /* Section atmospheres — light */
+  --sec-about: #f7f2ea;
+  --sec-services: #efeae2;
+  --sec-portfolio: #f5f0e8;
+  --sec-why: #ebe5db;
+  --sec-contact: #f4efe7;
+  --sec-footer: #e8e2d8;
+}
+
+.dark {
+  --bg: #0d0b09;
+  --fg: #f4efe6;
+  --surface: #161310;
+  --surface-alt: #12100e;
+  --muted: #23201b;
+  --muted-fg: #b3a99c;
+  --border: rgba(244, 239, 230, 0.1);
+  --brass: #c9a66a;
+  --brass-soft: #e2c896;
+  --brass-ink: #14110e;
+  --walnut: #d6c6b0;
+  --glass: rgba(22, 19, 16, 0.84);
+  --nav-bg: rgba(13, 11, 9, 0.9);
+  --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 24px 60px rgba(0, 0, 0, 0.45);
+
+  /* Section atmospheres — dark */
+  --sec-about: #100e0c;
+  --sec-services: #13110e;
+  --sec-portfolio: #0e0c0a;
+  --sec-why: #15120f;
+  --sec-contact: #110f0d;
+  --sec-footer: #0a0908;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --font-sans: var(--font-vazirmatn);
+  --font-display: var(--font-cormorant);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-vazirmatn), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  position: relative;
+  background: var(--bg);
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-divider {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 2;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 5%,
+    color-mix(in srgb, var(--brass) 28%, transparent) 50%,
+    transparent 95%
+  );
+}
+
+/* Minimal per-section atmospheres (light + dark via tokens) */
+.bg-about {
+  background:
+    radial-gradient(900px 480px at 0% 20%, color-mix(in srgb, var(--brass) 11%, transparent), transparent 58%),
+    linear-gradient(180deg, var(--sec-about), color-mix(in srgb, var(--sec-about) 88%, var(--sec-services)));
+}
+
+.bg-services {
+  background:
+    radial-gradient(780px 420px at 100% 0%, color-mix(in srgb, var(--walnut) 8%, transparent), transparent 55%),
+    linear-gradient(165deg, var(--sec-services) 0%, color-mix(in srgb, var(--sec-services) 92%, var(--muted)) 100%);
+}
+
+.bg-portfolio {
+  background:
+    radial-gradient(700px 360px at 50% 0%, color-mix(in srgb, var(--brass) 6%, transparent), transparent 50%),
+    var(--sec-portfolio);
+}
+
+.bg-why {
+  background:
+    radial-gradient(820px 460px at 15% 100%, color-mix(in srgb, var(--brass) 10%, transparent), transparent 55%),
+    radial-gradient(640px 380px at 90% 10%, color-mix(in srgb, var(--walnut) 7%, transparent), transparent 50%),
+    linear-gradient(180deg, var(--sec-why), color-mix(in srgb, var(--sec-why) 90%, var(--sec-contact)));
+}
+
+.bg-contact {
+  background:
+    radial-gradient(760px 420px at 50% 0%, color-mix(in srgb, var(--brass) 12%, transparent), transparent 55%),
+    linear-gradient(180deg, var(--sec-contact), color-mix(in srgb, var(--sec-contact) 85%, var(--sec-footer)));
+}
+
+.bg-footer {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--sec-footer) 70%, var(--sec-contact)), var(--sec-footer));
+}
+
+/* Soft geometric accent — very minimal */
+.section-mesh::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.028;
+  background-image:
+    linear-gradient(var(--fg) 1px, transparent 1px),
+    linear-gradient(90deg, var(--fg) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.dark .section-mesh::after {
+  opacity: 0.04;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.dark body::before {
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass));
+}
+
+[dir="rtl"] .section-eyebrow::before {
+  background: linear-gradient(270deg, transparent, var(--brass));
+}
+
+.section-title {
+  font-family: var(--font-cormorant), "Times New Roman", serif;
+  font-size: clamp(2.15rem, 4.4vw, 3.5rem);
+  line-height: 1.12;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  margin-top: 1rem;
+  max-width: 36rem;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--muted-fg);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brass-soft), var(--brass));
+  padding: 0.9rem 1.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--brass-ink);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--brass) 28%, transparent);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--brass) 36%, transparent);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.9rem 1.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.luxury-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--brass) 45%, var(--border));
+  box-shadow: var(--shadow-lift);
+}
+
+.img-zoom {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.07);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brass) 42%, transparent);
+  color: var(--fg);
+}
+
+img,
+video {
+  user-select: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-brand-line {
+  width: 4.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brass-soft), transparent);
+}
+
+[dir="rtl"] .hero-brand-line {
+  background: linear-gradient(270deg, var(--brass-soft), transparent);
+}

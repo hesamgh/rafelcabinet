@@ -1,0 +1,25 @@
+import type { MetadataRoute } from "next";
+import { SITE } from "@/lib/seo";
+
+export const dynamic = "force-static";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "رافل کابینت | مجموعه کابینت پرویزی",
+    short_name: "رافل کابینت",
+    description:
+      "طراحی و اجرای کابینت آشپزخانه، کمد دیواری، میز TV، جا کفشی و دکوراسیون داخلی",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#f3eee6",
+    theme_color: "#b08d55",
+    lang: "fa-IR",
+    dir: "rtl",
+    icons: [
+      { src: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { src: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  };
+}
